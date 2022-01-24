@@ -23,7 +23,7 @@ alert(risultato);
 
 // dall'ok  parte un timer di 30 secondi.
 
-const timer = setInterval(timerFunction, 3000);
+setTimeout(timerFunction, 3000);
 
 function timerFunction() {
     for (let i = 0; i < 5; i++) {
