@@ -9,3 +9,24 @@ Bonus:
     - controllare che i numeri casuali siano diversi tra loro
     - controllare che l'utente non inserisca 2 volte lo stesso numero 
 */
+
+
+
+// Genero dei numeri casuali e li mostro in un alert
+let risultato = '';
+for (let i = 0; i < 5; i++) {
+    const number = Math.floor(Math.random() * 100) + 1;
+    console.log(number);
+    risultato += `${number},  `;
+}
+alert(risultato);
+
+// dall'ok  parte un timer di 30 secondi.
+
+const timer = setInterval(timerFunction, 3000);
+
+function timerFunction() {
+    for (let i = 0; i < 5; i++) {
+        const userNumber = parseInt(prompt('Inserisci i numeri precedentemente visualizzati'));
+    }
+}
