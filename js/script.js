@@ -11,22 +11,42 @@ Bonus:
 */
 
 
+// Funzioni
+function arrayContainsNumber(array, number) {
+    let esiste = false;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === number) {
+            esiste = true;
+            break;
+        }
+    }
+    return esiste;
+}
 
 // Genero dei numeri casuali e li mostro in un alert
-let risultato = '';
+const risultato = [];
 for (let i = 0; i < 5; i++) {
     const number = Math.floor(Math.random() * 100) + 1;
-    console.log(number);
-    risultato += `${number},  `;
+    risultato.push(number);
 }
+console.log('numeri randomizzati: ', risultato);
 alert(risultato);
 
 // dall'ok  parte un timer di 30 secondi.
 
 setTimeout(timerFunction, 3000);
 
+
+// Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri  sono stati indovinati dall'utente.
 function timerFunction() {
+    const userNumbersArray = [];
     for (let i = 0; i < 5; i++) {
-        const userNumber = parseInt(prompt('Inserisci i numeri precedentemente visualizzati'));
+        const userNumbersInput = parseInt(prompt('Inserisci i numeri precedentemente visualizzati'));
+        if (arrayContainsNumber(risultato, userNumbersInput)) {
+            userNumbersArray.push(userNumbersInput);
+        }
     }
+    console.log("numeri inseriti dall'utente: ", userNumbersArray);
+
+    alert(`i numeri inseriti correttamente sono: ${userNumbersArray}`)
 }
