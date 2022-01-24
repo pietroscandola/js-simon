@@ -27,7 +27,11 @@ function arrayContainsNumber(array, number) {
 const risultato = [];
 for (let i = 0; i < 5; i++) {
     const number = Math.floor(Math.random() * 100) + 1;
-    risultato.push(number);
+
+    // controllare che i numeri casuali siano diversi tra loro
+    if (!risultato.includes(number)) {
+        risultato.push(number);
+    }
 }
 console.log('numeri randomizzati: ', risultato);
 alert(risultato);
