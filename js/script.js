@@ -44,11 +44,16 @@ setTimeout(timerFunction, 3000);
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri  sono stati indovinati dall'utente.
 function timerFunction() {
     const userNumbersArray = [];
+    const inputs = [];
     for (let i = 0; i < 5; i++) {
-        const userNumbersInput = parseInt(prompt('Inserisci i numeri precedentemente visualizzati'));
+        let userNumbersInput = parseInt(prompt('Inserisci i numeri precedentemente visualizzati'));
+        while (inputs.includes(userNumbersInput)) {
+            userNumbersInput = parseInt(prompt('Il numero è già stato inserito'));
+        }
         if (arrayContainsNumber(risultato, userNumbersInput)) {
             userNumbersArray.push(userNumbersInput);
         }
+        inputs.push(userNumbersInput);
     }
     console.log("numeri inseriti dall'utente: ", userNumbersArray);
 
